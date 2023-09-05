@@ -10,7 +10,24 @@ const routes :Array<RouteRecordRaw> = [
   {
     path: '/home',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    children:[
+      {
+        path: '/Menu1',
+        name: 'Menu1',
+        component: ()=> import('../views/components/Menu1.vue')
+      },
+      {
+        path: '/Menu2',
+        name: 'Menu2',
+        component: ()=> import('../views/components/Menu2.vue')
+      },
+      {
+        path: '/Menu3',
+        name: 'Menu3',
+        component: ()=> import('../views/components/Menu3.vue')
+      }
+    ]
   }
 ]
 const router = createRouter({
