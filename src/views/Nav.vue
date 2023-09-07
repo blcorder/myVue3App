@@ -24,7 +24,7 @@ const menus = reactive(items)
 <template>
   <div class="nav-aside">
     <el-menu default-active="2" class="el-menu-vertical-demo" router>
-      <el-menu-item v-for="item in menus" :index="item.url">
+      <el-menu-item :key="item" v-for="item in menus" :index="item.url">
         <el-icon>
           <component :is="item.icon" />
         </el-icon>
