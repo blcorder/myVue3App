@@ -6,6 +6,7 @@ import {
   Setting,
 } from '@element-plus/icons-vue'
 import { reactive } from 'vue'
+import Icon from './icon/Icon.vue'
 
 interface Imenus {
   name: string,
@@ -26,7 +27,8 @@ const menus = reactive(items)
     <el-menu default-active="2" class="el-menu-vertical-demo" router>
       <el-menu-item :key="item" v-for="item in menus" :index="item.url">
         <el-icon>
-          <component :is="item.icon" />
+          <!-- <component :is="item.icon" /> -->
+          <Icon :icon="item.icon"/>
         </el-icon>
         {{ item.name }}
       </el-menu-item>
