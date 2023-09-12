@@ -1,9 +1,11 @@
 <script setup lang="ts">
-
+    
 </script>
 
 <template>
-    2
+    订单信息
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

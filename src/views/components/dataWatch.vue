@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    1
+    数据详情
 </template>
 
 <style scoped>

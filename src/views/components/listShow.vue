@@ -1,11 +1,9 @@
 <script setup lang="ts">
-    
+
 </script>
 
 <template>
-    3
+    列表展示
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

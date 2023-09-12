@@ -1,37 +1,38 @@
 <script setup lang="ts">
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from '@element-plus/icons-vue'
+
 import { reactive } from 'vue'
 import Icon from './icon/Icon.vue'
+import { menus } from './data/menu'
 
-interface Imenus {
-  name: string,
-  url: string,
-  icon?: any
-}
-const items: Imenus[] = [
-  { name: "菜单一", url: '/Menu1', icon: Setting },
-  { name: "菜单二", url: '/Menu2', icon: Document },
-  { name: "菜单三", url: '/Menu3', icon: Location }
-]
-const menus = reactive(items)
 </script>
 
 
 <template>
   <div class="nav-aside">
     <el-menu default-active="2" class="el-menu-vertical-demo" router>
-      <el-menu-item :key="item" v-for="item in menus" :index="item.url">
-        <el-icon>
-          <!-- <component :is="item.icon" /> -->
-          <Icon :icon="item.icon"/>
-        </el-icon>
-        {{ item.name }}
-      </el-menu-item>
+      <template v-for="item in menus" :key="item">
+        <el-sub-menu v-if="item.children" index="item.url">
+          <template #title>
+            <el-icon>
+              <Icon :icon="item.icon" />
+            </el-icon>
+            <span>{{ item.name }}</span>
+          </template>
+          <el-menu-item :key="child" v-for="child in item.children" :index="child.url">
+            <el-icon>
+              <Icon :icon="child.icon" />
+            </el-icon>
+            {{ child.name }}
+          </el-menu-item>
+        </el-sub-menu>
+
+        <el-menu-item v-else :index="item.url">
+          <el-icon>
+            <Icon :icon="item.icon" />
+          </el-icon>
+          {{ item.name }}
+        </el-menu-item>
+      </template>
     </el-menu>
   </div>
 </template>

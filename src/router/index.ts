@@ -13,19 +13,28 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView,
     children: [
       {
-        path: '/Menu1',
-        name: 'Menu1',
-        component: () => import('../views/components/Menu1.vue')
+        path: '/home/',
+        redirect: '/dataWatch',
       },
       {
-        path: '/Menu2',
-        name: 'Menu2',
-        component: () => import('../views/components/Menu2.vue')
+        path: '/dataWatch',
+        name: 'dataWatch',
+        component: () => import('../views/components/dataWatch.vue')
       },
       {
-        path: '/Menu3',
-        name: 'Menu3',
-        component: () => import('../views/components/Menu3.vue')
+        path: '/listShow',
+        name: 'listShow',
+        component: () => import('../views/components/listShow.vue')
+      },
+      {
+        path: '/orderInfo',
+        name: 'orderInfo',
+        component: () => import('../views/components/orderInfo.vue')
+      },
+      {
+        path: '/tjfx',
+        name: 'tjfx',
+        component: () => import('../views/components/tjfx.vue')
       }
     ]
   }
